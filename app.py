@@ -2,15 +2,19 @@ from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from analyze_resume import analyze_resume  # your new ML code
 
-app = FastAPI(title="Resume Analysis & Career Prediction API")
+app = FastAPI()
 
+origins = [
+    "https://pro-front-final.vercel.app",  # your Vercel frontend URL
+    "http://localhost:3000",               # for local testing
+]
 # Enable CORS for your Next.js frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # or specify your frontend URL
+    allow_origins=origins,         # allow requests from these origins
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"],           # allow all HTTP methods
+    allow_headers=["*"],           # allow all headers
 )
 
 
