@@ -5,6 +5,7 @@ from analyze_resume import analyze_resume  # your new ML code
 app = FastAPI()
 
 origins = [
+    "https://pro-front-end-three.vercel.app/",  # your Vercel frontend URL
     "https://pro-front-final.vercel.app",  # your Vercel frontend URL
     "http://localhost:3000",               # for local testing
 ]
